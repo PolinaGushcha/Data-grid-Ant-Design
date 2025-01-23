@@ -28,7 +28,7 @@
       "@fonts/*": ["fonts/*"],
       "@store/*": ["store/*"],
       "@styles/*": ["styles/*"],
-      "@theme/*": ["styles/*"],
+      "@theme/*": ["theme/*"],
       "@types/*": ["types/*"],
       "@ui/*": ["ui/*"],
     }
