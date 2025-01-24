@@ -30,13 +30,15 @@ export const PageTable = () => {
 				<Button className='pageTable__btnContainer__btn' type="default" iconPosition='start' icon={<BugFilled />} />
 				<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<BugFilled />} />
 				<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<MoreOutlined />} />
-				<Divider type="vertical" />
+				<Divider className='pageTable__btnContainer__divider' type="vertical" />
 				<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<SaveFilled />} />
 				<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<InsertRowRightOutlined />} />
 				<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<MoreOutlined />} />
 				</Flex>
 			</Flex>
 			<Table<DataType>
+				showSorterTooltip={{ target: 'sorter-icon' }}
+				className='pageTable__table'
 				rowKey={record => record.key}
 				rowSelection={rowSelection}
 				columns={columns}

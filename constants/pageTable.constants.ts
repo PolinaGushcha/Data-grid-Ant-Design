@@ -26,7 +26,7 @@ export const columns: TableColumnsType<DataType> = [
 	{ title: 'Age', dataIndex: 'age4' },
 	{ title: 'City', dataIndex: 'city' },
 	{ title: 'Status', dataIndex: 'status' },
-	{ title: 'Description', dataIndex: 'description' }
+	{ title: '', dataIndex: 'action' }
 ]
 
 export const dataSource = Array.from<DataType>({ length: 1000 }).map<DataType>((_, i) => ({
@@ -38,5 +38,6 @@ export const dataSource = Array.from<DataType>({ length: 1000 }).map<DataType>((
 	age4: 'Table cell text',
 	city: 'Table cell text',
 	status: 'Default',
-	description: 'Description'
+	description: 'Description',
+	action: 'action'
 }))

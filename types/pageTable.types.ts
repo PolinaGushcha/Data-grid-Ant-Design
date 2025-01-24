@@ -7,5 +7,6 @@ export interface DataType {
 	age4: string
 	city: string
 	status: string
-	description: string
+	description: string,
+	action: string
 }
