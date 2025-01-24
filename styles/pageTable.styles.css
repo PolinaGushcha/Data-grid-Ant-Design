@@ -1,0 +1,32 @@
+.pageTable {
+    padding: 0 40px;
+}
+
+.pageTable__selectedCount {
+    padding-top: 20px;
+}
+
+.pageTable__btnContainer {
+    padding-right: 14px;
+}
+
+.pageTable__btnContainer__btn {
+    color: #D9D9D9;
+}
+
+.pageTable__btnContainer__btn svg {
+    fill: rgba(0, 0, 0, 0.45);
+}
+
+.pageTable__btnContainer__divider {
+    height: 40px;
+    position: relative;
+    top: -5px;
+}
+
+.pageTable__table th:first-child, th:nth-child(2) {
+    width: 10%;
+}
+.pageTable__table th:nth-child(3) {
+    width: 20%;
+}

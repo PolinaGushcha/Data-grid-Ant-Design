@@ -1,0 +1,34 @@
+.main {
+	background-color: white;
+	min-height: 100vh;
+}
+
+.sider {
+	border-right: 1px solid #f0f0f0;
+}
+
+.header {
+	background-color: white;
+}
+
+.tableTabs {
+	margin-top: 97px;
+	padding-top: 20px;
+	width: 100%;
+	background-color: white;
+}
+
+.tableTabs .ant-tabs-nav-list {
+	gap: 8px;
+	justify-content: flex-start;
+	display: flex;
+	flex-direction: row;
+}
+
+.tableTabs div[role='tablist'] {
+	padding-left: 40px;
+}
+
+.tableTabs div[role='tab'] {
+	padding: 9px 16px;
+}

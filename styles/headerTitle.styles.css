@@ -1,0 +1,24 @@
+.headerTitle {
+	justify-content: space-between;
+	padding: 29px 32px;
+	background-color: #fafafa;
+}
+
+.headerTitle__buttons {
+	gap: 16px;
+}
+
+.headerTitle__btn {
+	border-color: #1677ff;
+	color: #1677ff;
+	padding: 18px 19px;
+	background-color: transparent;
+}
+
+.headerTitle__btn .ant-btn-icon {
+	margin-right: 8px;
+}
+
+.headerTitle__btn:last-of-type .ant-btn-icon {
+	margin-right: 0px;
+}
