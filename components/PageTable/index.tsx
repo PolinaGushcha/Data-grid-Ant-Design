@@ -1,7 +1,9 @@
 'use client'
 
-import { Button, Flex, Table, TableColumnsType } from 'antd'
+import { PoweroffOutlined, RightOutlined } from '@ant-design/icons'
+import { Button, Divider, Flex, Input, Table, TableColumnsType, TableProps } from 'antd'
 import { TableRowSelection } from 'antd/es/table/interface'
+import React from 'react'
 import { useState } from 'react'
 
 interface DataType {
@@ -13,16 +15,41 @@ interface DataType {
 	age4: string
 	city: string
 	status: string
+	description: string
 }
-
+// interface TableParams {
+// 	pagination?: TablePaginationConfig;
+// 	sortField?: SorterResult<any>['field'];
+// 	sortOrder?: SorterResult<any>['order'];
+// 	filters?: Parameters<GetProp<TableProps, 'onChange'>>[1];
+//   }
+  
 const columns: TableColumnsType<DataType> = [
-	{ title: 'Name', dataIndex: 'name' },
+	{
+		title: 'Name',
+		dataIndex: 'name',
+		filterMode: 'tree',
+		filterSearch: true,
+		onFilter: (value, record) => record.name.startsWith(value as string),
+		width: '40%',
+		filters: [
+			{
+				text: 'London',
+				value: 'London'
+			},
+			{
+				text: 'New York',
+				value: 'New York'
+			}
+		]
+	},
 	{ title: 'Age', dataIndex: 'age1' },
 	{ title: 'Age', dataIndex: 'age2' },
 	{ title: 'Age', dataIndex: 'age3' },
 	{ title: 'Age', dataIndex: 'age4' },
 	{ title: 'City', dataIndex: 'city' },
-	{ title: 'Status', dataIndex: 'status' }
+	{ title: 'Status', dataIndex: 'status' },
+	{ title: 'Description', dataIndex: 'description' }
 ]
 
 const dataSource = Array.from<DataType>({ length: 46 }).map<DataType>((_, i) => ({
@@ -33,21 +60,12 @@ const dataSource = Array.from<DataType>({ length: 46 }).map<DataType>((_, i) => 
 	age3: 'Table cell text',
 	age4: 'Table cell text',
 	city: 'Table cell text',
-	status: 'Default'
+	status: 'Default',
+	description: 'Description'
 }))
 
 export const PageTable = () => {
 	const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([])
-	const [loading, setLoading] = useState(false)
-
-	const start = () => {
-		setLoading(true)
-		// ajax request after empty completing
-		setTimeout(() => {
-			setSelectedRowKeys([])
-			setLoading(false)
-		}, 1000)
-	}
 
 	const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
 		console.log('selectedRowKeys changed: ', newSelectedRowKeys)
@@ -59,17 +77,45 @@ export const PageTable = () => {
 		onChange: onSelectChange
 	}
 
-	const hasSelected = selectedRowKeys.length > 0
+	const onChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter, extra) => {
+		console.log('params', pagination, filters, sorter, extra);
+	  };	  
 
 	return (
 		<Flex gap='middle' vertical>
-			<Flex align='center' gap='middle'>
-				<Button type='primary' onClick={start} disabled={!hasSelected} loading={loading}>
-					Reload
-				</Button>
-				{hasSelected ? `Selected ${selectedRowKeys.length} items` : null}
+			<Flex>
+				<p>Filter A:
+				<Input style={{ width: '20%' }} defaultValue="0571" placeholder='Input' />
+				</p>
 			</Flex>
-			<Table<DataType> rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
+			<Flex align='center' gap='middle'>
+				<p>
+					{selectedRowKeys.length} of {dataSource.length} Selected
+				</p>
+				<Flex>
+				<Button type='primary' iconPosition='start' icon={<PoweroffOutlined />} />
+				<Button type='primary' iconPosition='start' icon={<PoweroffOutlined />} />
+				<Button type='primary' iconPosition='start' icon={<PoweroffOutlined />} />
+				<Divider style={{ margin: 10 }} type="vertical" />
+				<Button type='primary' iconPosition='start' icon={<PoweroffOutlined />} />
+				<Button type='primary' iconPosition='start' icon={<PoweroffOutlined />} />
+				<Button type='primary' iconPosition='start' icon={<PoweroffOutlined />} />
+				</Flex>
+			</Flex>
+			<Table<DataType>
+				rowKey={(record) => record.key}
+				// pagination={tableParams.pagination}
+				onChange={onChange}
+				rowSelection={rowSelection}
+				columns={columns}
+				dataSource={dataSource}
+				expandable={{
+					expandedRowRender: record => <p>{record.description}</p>,
+					rowExpandable: record => record.name !== 'Not Expandable',
+					expandIcon: ({ expanded, onExpand, record }) =>
+						expanded ? <RightOutlined onClick={e => onExpand(record, e)} /> : <RightOutlined onClick={e => onExpand(record, e)} />
+				}}
+			/>
 		</Flex>
 	)
 }
