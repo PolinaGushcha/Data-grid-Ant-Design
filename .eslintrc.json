@@ -1,13 +1,11 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"],
-  "plugins": [
-    "react"
-  ],
-  "rules": {
-    "react/no-unescaped-entities": 0,
-    "react-hooks/exhaustive-deps": "off",
-    "react/display-name": "off",
-    "object-curly-spacing": ["error", "always"],
-    "max-len": ["error", 150]
-  }
+	"extends": ["next/core-web-vitals", "next/typescript"],
+	"plugins": ["react"],
+	"rules": {
+		"react/no-unescaped-entities": 0,
+		"react-hooks/exhaustive-deps": "off",
+		"react/display-name": "off",
+		"object-curly-spacing": ["error", "always"],
+		"max-len": ["error", 150]
+	}
 }

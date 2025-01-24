@@ -1,18 +1,18 @@
 .main {
-    background-color: white;
-    min-height: 100vh;
+	background-color: white;
+	min-height: 100vh;
 }
 
 .sider {
-    border-right: 1px solid #f0f0f0
+	border-right: 1px solid #f0f0f0;
 }
 
 .header {
-    background-color: white;
+	background-color: white;
 }
 .tableTabs {
-    margin-top: 92px;
-    padding-top: 20px;
-    width: 100%;
-    background-color: rgb(132, 68, 68);
+	margin-top: 92px;
+	padding-top: 20px;
+	width: 100%;
+	background-color: rgb(240, 205, 205);
 }
