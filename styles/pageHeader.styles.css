@@ -1,0 +1,18 @@
+.pageHeader {
+	position: relative;
+	background-color: white;
+}
+
+.pageHeader__tabs {
+	width: 100%;
+	height: 100%;
+}
+
+.pageHeader__tabs div[role='tablist'] div[role='tab'] {
+	padding: 21px 0px 21px;
+	margin: 0 22px 0 16px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 6px;
+}

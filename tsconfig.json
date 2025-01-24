@@ -22,15 +22,7 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./*"],
-			"@/app": ["app/*"],
-			"@components/*": ["@/components/*"],
-			"@constants/*": ["@/constants/*"],
-			"@fonts/*": ["@/fonts/*"],
-			"@store/*": ["@/store/*"],
-			"@styles/*": ["@/styles/*"],
-			"@theme/*": ["@/theme/*"],
-			"@types/*": ["@/types/*"],
-			"@ui/*": ["@/ui/*"]
+			"@/app": ["app/*"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

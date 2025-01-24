@@ -4,12 +4,11 @@ import { StyleProvider } from '@ant-design/cssinjs'
 import { Layout, Tabs } from 'antd'
 import Sider from 'antd/es/layout/Sider'
 import { Content, Header } from 'antd/es/layout/layout'
+import PageHeader from 'components/PageHeader'
 import PageSideMenu from 'components/PageSideMenu'
+import { PageTable } from 'components/PageTable'
 import React from 'react'
-import 'styles/main.css'
-
-import PageHeader from '@/components/PageHeader'
-import { PageTable } from '@/components/PageTable'
+import 'styles/main.styles.css'
 
 export default function Main() {
 	return (
@@ -27,12 +26,12 @@ export default function Main() {
 							<Tabs
 								className='tableTabs'
 								type='card'
-								items={new Array(3).fill(null).map((_, i) => {
+								items={new Array(6).fill(null).map((_, i) => {
 									const id = String(i + 1)
 									return {
-										label: `Tab title`,
+										label: 'Tab title',
 										key: id,
-										children: React.createElement(PageTable)
+										children: <PageTable />
 									}
 								})}
 							/>
