@@ -4,7 +4,7 @@
     justify-content: flex-start;
     gap: 25px;
     align-items: center;
-    padding: 26px 15px 16px 40px;
+    padding: 26px 15px 0px 0px;
 }
 
 .filterForm__input {

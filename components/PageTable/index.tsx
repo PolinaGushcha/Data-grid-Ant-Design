@@ -1,12 +1,12 @@
 'use client'
 
-import { RightOutlined } from '@ant-design/icons'
-import { Flex, Table } from 'antd'
+import { BugFilled, InsertRowRightOutlined, MoreOutlined, RightOutlined, SaveFilled } from '@ant-design/icons'
+import { Button, Divider, Flex, Table } from 'antd'
 import { TableRowSelection } from 'antd/es/table/interface'
 import { columns, dataSource } from 'constants/pageTable.constants'
 import React, { useState } from 'react'
 import { DataType } from 'types/pageTable.types'
-
+import "styles/pageTable.styles.css"
 import { FilterForm } from 'ui/FilterForm'
 
 export const PageTable = () => {
@@ -22,22 +22,20 @@ export const PageTable = () => {
 		onChange: onSelectChange
 	}
 	return (
-		<Flex gap='middle' vertical>
+		<Flex gap='middle' vertical className='pageTable'>
 			<FilterForm />
-			{/* <Flex align='center' gap='middle'>
-				<p>
-					{selectedRowKeys.length} of {dataSource.length} Selected
-				</p>
-				<Flex>
-				<Button type='primary' iconPosition='start' icon={<PoweroffOutlined />} />
-				<Button type='primary' iconPosition='start' icon={<PoweroffOutlined />} />
-				<Button type='primary' iconPosition='start' icon={<PoweroffOutlined />} />
-				<Divider style={{ margin: 10 }} type="vertical" />
-				<Button type='primary' iconPosition='start' icon={<PoweroffOutlined />} />
-				<Button type='primary' iconPosition='start' icon={<PoweroffOutlined />} />
-				<Button type='primary' iconPosition='start' icon={<PoweroffOutlined />} />
+			<Flex align="flex-start" gap='middle' justify="space-between">
+				<p className='pageTable__selectedCount'>{selectedRowKeys.length} of {dataSource.length} Selected</p>
+				<Flex className='pageTable__btnContainer' gap={25}>
+				<Button className='pageTable__btnContainer__btn' type="default" iconPosition='start' icon={<BugFilled />} />
+				<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<BugFilled />} />
+				<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<MoreOutlined />} />
+				<Divider type="vertical" />
+				<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<SaveFilled />} />
+				<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<InsertRowRightOutlined />} />
+				<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<MoreOutlined />} />
 				</Flex>
-			</Flex> */}
+			</Flex>
 			<Table<DataType>
 				rowKey={record => record.key}
 				rowSelection={rowSelection}

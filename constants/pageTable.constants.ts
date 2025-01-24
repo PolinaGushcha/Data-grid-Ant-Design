@@ -29,7 +29,7 @@ export const columns: TableColumnsType<DataType> = [
 	{ title: 'Description', dataIndex: 'description' }
 ]
 
-export const dataSource = Array.from<DataType>({ length: 46 }).map<DataType>((_, i) => ({
+export const dataSource = Array.from<DataType>({ length: 1000 }).map<DataType>((_, i) => ({
 	key: i,
 	name: 'Table cell text',
 	age1: 'Table cell text',
