@@ -1,40 +1,41 @@
 .filterForm {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 25px;
-    align-items: center;
-    padding: 26px 15px 0px 0px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	gap: 25px;
+	align-items: center;
+	padding: 26px 15px 0px 0px;
 }
 
 .filterForm__input {
-    padding: 5px 12px;
-    max-width: 167px;
+	padding: 5px 12px;
+	max-width: 167px;
 }
 
 .filterForm__select {
-    width: 167px;
+	width: 167px;
 }
 
 .filterForm__btn {
-    border-color: #1677ff;
+	border-color: #1677ff;
 	color: #1677ff;
-    padding: 15px 17px;
+	padding: 15px 17px;
 	background-color: transparent;
 }
 
 .ant-select-dropdown {
-    padding: 10px;
+	padding: 10px;
 }
 
 .ant-select-arrow {
-    top: 35%;
+	top: 35%;
 }
 
-.ant-select-selection-item, .ant-select-selection-placeholder {
-    padding-left: 12px;
+.ant-select-selection-item,
+.ant-select-selection-placeholder {
+	padding-left: 12px;
 }
 .ant-select-item-option-content {
-    padding-top: 5px;
-    padding-left: 5px;
+	padding-top: 5px;
+	padding-left: 5px;
 }

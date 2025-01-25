@@ -4,16 +4,25 @@ import { BugFilled, InsertRowRightOutlined, MoreOutlined, RightOutlined, SaveFil
 import { Button, Divider, Flex, Table } from 'antd'
 import { TableRowSelection } from 'antd/es/table/interface'
 import { columns, dataSource } from 'constants/pageTable.constants'
-import React, { useState } from 'react'
-import { DataType } from 'types/pageTable.types'
-import "styles/pageTable.styles.css"
+import React, { useEffect, useState } from 'react'
+import 'styles/pageTable.styles.css'
+import { DataType, TableParams } from 'types/pageTable.types'
 import { FilterForm } from 'ui/FilterForm'
 
 export const PageTable = () => {
 	const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([])
+	const [tableParams, setTableParams] = useState<TableParams>({
+		pagination: {
+		  current: 1,
+		  pageSize: 14,
+        showSizeChanger: true,
+        showQuickJumper: true,
+        total: dataSource.length,
+		className: "pageTable__pagination",
+		},
+	  });
 
 	const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
-		console.log('selectedRowKeys changed: ', newSelectedRowKeys)
 		setSelectedRowKeys(newSelectedRowKeys)
 	}
 
@@ -21,23 +30,31 @@ export const PageTable = () => {
 		selectedRowKeys,
 		onChange: onSelectChange
 	}
+
+	useEffect(() => {
+		const paginationInput = document.querySelector('[aria-label="Page"]') as HTMLInputElement
+		if (paginationInput) { paginationInput.placeholder = 'Input' }
+	}, [])
+
 	return (
 		<Flex gap='middle' vertical className='pageTable'>
 			<FilterForm />
-			<Flex align="flex-start" gap='middle' justify="space-between">
-				<p className='pageTable__selectedCount'>{selectedRowKeys.length} of {dataSource.length} Selected</p>
+			<Flex align='flex-start' gap='middle' justify='space-between'>
+				<p className='pageTable__selectedCount'>
+					{selectedRowKeys.length} of {dataSource.length} Selected
+				</p>
 				<Flex className='pageTable__btnContainer' gap={25}>
-				<Button className='pageTable__btnContainer__btn' type="default" iconPosition='start' icon={<BugFilled />} />
-				<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<BugFilled />} />
-				<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<MoreOutlined />} />
-				<Divider className='pageTable__btnContainer__divider' type="vertical" />
-				<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<SaveFilled />} />
-				<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<InsertRowRightOutlined />} />
-				<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<MoreOutlined />} />
+					<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<BugFilled />} />
+					<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<BugFilled />} />
+					<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<MoreOutlined />} />
+					<Divider className='pageTable__btnContainer__divider' type='vertical' />
+					<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<SaveFilled />} />
+					<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<InsertRowRightOutlined />} />
+					<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<MoreOutlined />} />
 				</Flex>
 			</Flex>
 			<Table<DataType>
-				showSorterTooltip={{ target: 'sorter-icon' }}
+				pagination={tableParams.pagination}
 				className='pageTable__table'
 				rowKey={record => record.key}
 				rowSelection={rowSelection}

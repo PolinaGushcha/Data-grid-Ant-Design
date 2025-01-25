@@ -1,3 +1,5 @@
+import { GetProp, TablePaginationConfig, TableProps } from "antd"
+
 export interface DataType {
 	key: React.Key
 	name: string
@@ -7,6 +9,11 @@ export interface DataType {
 	age4: string
 	city: string
 	status: string
-	description: string,
+	description: string
 	action: string
 }
+
+export interface TableParams {
+	pagination?: TablePaginationConfig;
+	filters?: Parameters<GetProp<TableProps, 'onChange'>>[1];
+  }
