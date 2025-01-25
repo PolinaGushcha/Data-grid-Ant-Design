@@ -1,4 +1,4 @@
-import { GetProp, TablePaginationConfig, TableProps } from "antd"
+import { GetProp, TablePaginationConfig, TableProps } from 'antd'
 
 export interface DataType {
 	key: React.Key
@@ -14,6 +14,6 @@ export interface DataType {
 }
 
 export interface TableParams {
-	pagination?: TablePaginationConfig;
-	filters?: Parameters<GetProp<TableProps, 'onChange'>>[1];
-  }
+	pagination?: TablePaginationConfig
+	filters?: Parameters<GetProp<TableProps, 'onChange'>>[1]
+}

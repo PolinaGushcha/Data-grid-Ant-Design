@@ -14,7 +14,7 @@ export const columns: TableColumnsType<DataType> = [
 				<p>{text}</p>
 			</div>
 		),
-		width: '10.8%',
+		width: '10.8%'
 	},
 	{ title: 'Age', dataIndex: 'age1', width: '10.8%' },
 	{ title: 'Age', dataIndex: 'age2', width: '10.8%' },
@@ -25,16 +25,16 @@ export const columns: TableColumnsType<DataType> = [
 	{
 		title: '',
 		dataIndex: 'action',
-		width: "15.6%",
+		width: '15.6%',
 		render: text => (
 			<Flex className='pageTable__table__action'>
 				<a>{text} 1</a>
 				<a>{text} 2</a>
 				<a>{text} 3</a>
-				</Flex>
+			</Flex>
 		)
 	},
-	{ title: '', dataIndex: 'more', render: () => <MoreOutlined className='pageTable__table__more'/> },
+	{ title: '', dataIndex: 'more', render: () => <MoreOutlined className='pageTable__table__more' /> }
 ]
 
 export const dataSource = Array.from<DataType>({ length: 1000 }).map<DataType>((_, i) => ({
@@ -47,5 +47,5 @@ export const dataSource = Array.from<DataType>({ length: 1000 }).map<DataType>((
 	city: 'Table cell text',
 	status: 'Default',
 	description: 'Description',
-	action: 'Action',
+	action: 'Action'
 }))

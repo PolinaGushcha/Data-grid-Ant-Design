@@ -43,7 +43,7 @@ th:nth-child(2) {
 }
 
 .pageTable__table__status {
-    padding: 0px 8px;
+	padding: 0px 8px;
 }
 
 .pageTable__table__name {
@@ -55,24 +55,24 @@ th:nth-child(2) {
 }
 
 .pageTable__table__action {
-    justify-content: flex-end;
-    align-items: center;
-    gap: 17px;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 17px;
 }
 
 .pageTable__table__more {
-    position: relative;
-    left: 4px;
+	position: relative;
+	left: 4px;
 }
 
 .pageTable__pagination {
-    margin-top: 8px;
-    gap: 8px;
+	margin-top: 8px;
+	gap: 8px;
 	position: relative;
 	right: -8px;
 }
 
-[aria-label="Page"] {
+[aria-label='Page'] {
 	padding: 5px 12px;
 	width: 71px;
 	margin: 0 8px;
@@ -85,8 +85,8 @@ th:nth-child(2) {
 
 .pageTable__pagination > li {
 	position: relative;
-    right: 9px;
+	right: 9px;
 }
 .pageTable__pagination > li:last-child {
-    right: 0px;
+	right: 0px;
 }

@@ -1,26 +1,31 @@
 'use client'
 
 import { BugFilled, InsertRowRightOutlined, MoreOutlined, RightOutlined, SaveFilled } from '@ant-design/icons'
-import { Button, Divider, Flex, Table } from 'antd'
+import { Button, Divider, Flex, Table, TableProps } from 'antd'
 import { TableRowSelection } from 'antd/es/table/interface'
-import { columns, dataSource } from 'constants/pageTable.constants'
+import { columns } from 'constants/pageTable.constants'
 import React, { useEffect, useState } from 'react'
 import 'styles/pageTable.styles.css'
 import { DataType, TableParams } from 'types/pageTable.types'
+
 import { FilterForm } from 'ui/FilterForm'
+
+import { useDataContext } from '@/store/DataContextProvider'
 
 export const PageTable = () => {
 	const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([])
+	const { tableData } = useDataContext()
 	const [tableParams, setTableParams] = useState<TableParams>({
 		pagination: {
-		  current: 1,
-		  pageSize: 14,
-        showSizeChanger: true,
-        showQuickJumper: true,
-        total: dataSource.length,
-		className: "pageTable__pagination",
-		},
-	  });
+			current: 1,
+			pageSize: 14,
+			showSizeChanger: true,
+			showQuickJumper: true,
+			pageSizeOptions: [0, 10, 14, 20, 50, 100],
+			total: tableData.length,
+			className: 'pageTable__pagination'
+		}
+	})
 
 	const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
 		setSelectedRowKeys(newSelectedRowKeys)
@@ -33,15 +38,24 @@ export const PageTable = () => {
 
 	useEffect(() => {
 		const paginationInput = document.querySelector('[aria-label="Page"]') as HTMLInputElement
-		if (paginationInput) { paginationInput.placeholder = 'Input' }
+		if (paginationInput) {
+			paginationInput.placeholder = 'Input'
+		}
 	}, [])
+
+	const handleTableChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter) => {
+		setTableParams({
+			pagination,
+			filters
+		})
+	}
 
 	return (
 		<Flex gap='middle' vertical className='pageTable'>
 			<FilterForm />
 			<Flex align='flex-start' gap='middle' justify='space-between'>
 				<p className='pageTable__selectedCount'>
-					{selectedRowKeys.length} of {dataSource.length} Selected
+					{selectedRowKeys.length} of {tableData.length} Selected
 				</p>
 				<Flex className='pageTable__btnContainer' gap={25}>
 					<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<BugFilled />} />
@@ -59,7 +73,8 @@ export const PageTable = () => {
 				rowKey={record => record.key}
 				rowSelection={rowSelection}
 				columns={columns}
-				dataSource={dataSource}
+				dataSource={tableData}
+				onChange={handleTableChange}
 				expandable={{
 					expandedRowRender: record => <p>{record.description}</p>,
 					expandIcon: ({ expanded, onExpand, record }) =>

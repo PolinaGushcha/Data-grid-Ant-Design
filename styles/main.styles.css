@@ -3,12 +3,13 @@
 	min-height: 100vh;
 }
 
-.sider {
+.main .sider {
 	border-right: 1px solid #f0f0f0;
 }
 
-.header {
+.main .header {
 	background-color: white;
+	padding: 0;
 }
 
 .tableTabs {
@@ -31,4 +32,52 @@
 
 .tableTabs div[role='tab'] {
 	padding: 9px 16px;
+}
+
+.createRecord__header {
+	background-color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 16px 36px 12px 32px;
+	height: fit-content;
+}
+.createRecord__btn {
+	border-color: #1677ff;
+	color: #1677ff;
+	padding: 0px 16px;
+}
+.createRecord__container {
+	background-color: white;
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+	min-height: 100vh;
+	flex-direction: column;
+	padding: 39px 40px;
+}
+.createRecord__title {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 10px;
+	gap: 16px;
+    letter-spacing: 1.3px;
+}
+.createRecordSection {
+	margin-top: 40px;
+}
+.createRecordSection__tabs div[role='tablist'] {
+	padding: 0;
+}
+.createRecordSection__tabs .ant-tabs-nav-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0px;
+	margin-top: 10px;
+}
+.createRecordSection__tabs .ant-tabs-content-holder {
+	display: none;
 }

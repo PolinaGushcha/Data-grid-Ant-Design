@@ -10,6 +10,8 @@ import { PageTable } from 'components/PageTable'
 import React from 'react'
 import 'styles/main.styles.css'
 
+import DataContextProvider from '@/store/DataContextProvider'
+
 export default function Main() {
 	return (
 		<StyleProvider layer>
@@ -23,18 +25,20 @@ export default function Main() {
 							<PageHeader />
 						</Header>
 						<Content>
-							<Tabs
-								className='tableTabs'
-								type='card'
-								items={new Array(6).fill(null).map((_, i) => {
-									const id = String(i + 1)
-									return {
-										label: 'Tab title',
-										key: id,
-										children: <PageTable />
-									}
-								})}
-							/>
+							<DataContextProvider>
+								<Tabs
+									className='tableTabs'
+									type='card'
+									items={new Array(6).fill(null).map((_, i) => {
+										const id = String(i + 1)
+										return {
+											label: 'Tab title',
+											key: id,
+											children: <PageTable />
+										}
+									})}
+								/>
+							</DataContextProvider>
 						</Content>
 					</Layout>
 				</Content>
