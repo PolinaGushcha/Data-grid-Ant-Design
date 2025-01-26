@@ -8,5 +8,6 @@ export interface IDataContextProps {
 export interface IDataContext {
 	tableData: DataType[]
 	setTableData: Dispatch<SetStateAction<DataType[]>>
-	addDataContext: (userTableData: DataType) => void
+	addDataContext: () => void
+	filterDatatContext: (value: string) => void
 }

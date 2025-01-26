@@ -1,5 +1,5 @@
 .pageTable {
-	padding: 0 40px;
+	padding: 0 40px 30px;
 }
 
 .pageTable__selectedCount {
@@ -89,4 +89,13 @@ th:nth-child(2) {
 }
 .pageTable__pagination > li:last-child {
 	right: 0px;
+}
+.ant-table-filter-dropdown .ant-checkbox-wrapper {
+	margin-right: 5px;
+}
+.ant-table-filter-dropdown {
+	padding: 5px;
+}
+.ant-table-filter-dropdown-btns {
+	padding-top: 10px;
 }

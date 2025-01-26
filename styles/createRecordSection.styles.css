@@ -46,22 +46,22 @@
 	margin-left: 45px;
 }
 .form__footer {
-    border-top: 2px solid #F2F2F2;
+	border-top: 2px solid #f2f2f2;
 	position: fixed;
 	width: 100%;
 	bottom: 0;
 	left: 0;
 	background-color: white;
-    justify-content: space-between;
-    padding: 21px 32px;
+	justify-content: space-between;
+	padding: 21px 32px;
 }
 
 .form__footer__btnContainer {
-    gap: 15px
+	gap: 15px;
 }
 
 .form__footer__btnContainer:first-child .form__footer__btnContainer__btn:nth-child(2) {
-    padding-left: 54px;
+	padding-left: 54px;
 }
 
 .form__footer__btnContainer__btn {
