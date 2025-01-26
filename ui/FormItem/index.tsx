@@ -8,48 +8,48 @@ export const FormItem = () => {
 			<Flex className='form__container'>
 				<h4 className='form__title'>Section Name</h4>
 				<div className='form__items'>
-					<Form.Item<FieldType> className='form__items__item' name='input1'>
+					<Form.Item<FieldType> className='form__items__item'>
 						<p>Information Label A</p>
 						<Input className='form__items__item__input' placeholder='Type' />
 					</Form.Item>
 
-					<Form.Item<FieldType> className='form__items__item' name='input2'>
+					<Form.Item<FieldType> className='form__items__item'>
 						<p>Information Label</p>
 						<Input className='form__items__item__input' placeholder='Type' />
 					</Form.Item>
 
-					<Form.Item<FieldType> className='form__items__item' name='input3'>
+					<Form.Item<FieldType> className='form__items__item'>
 						<p>Information Label</p>
 						<Input className='form__items__item__input' placeholder='Type' />
 					</Form.Item>
 
-					<Form.Item<FieldType> className='form__items__item' name='input4'>
+					<Form.Item<FieldType> className='form__items__item'>
 						<p>Information Label</p>
 						<Select placeholder='Select' className='form__items__item__select'>
 							<Select.Option value='sample'>Table cell text</Select.Option>
 						</Select>
 					</Form.Item>
 
-					<Form.Item<FieldType> className='form__items__item' name='input5'>
+					<Form.Item<FieldType> className='form__items__item'>
 						<p>Information Label</p>
 						<Select placeholder='Select' className='form__items__item__select'>
 							<Select.Option value='sample'>Table cell text</Select.Option>
 						</Select>
 					</Form.Item>
 
-					<Form.Item<FieldType> className='form__items__item' name='input5'>
+					<Form.Item<FieldType> className='form__items__item'>
 						<p>Information Label</p>
 						<Select placeholder='Select' className='form__items__item__select'>
 							<Select.Option value='sample'>Table cell text</Select.Option>
 						</Select>
 					</Form.Item>
 
-					<Form.Item<FieldType> className='form__items__item__checkbox' name='checkbox1' valuePropName='checked'>
+					<Form.Item<FieldType> className='form__items__item__checkbox' valuePropName='checked'>
 						<p>Information Label</p>
 						<Checkbox />
 					</Form.Item>
 
-					<Form.Item<FieldType> className='form__items__item__checkbox' name='checkbox2' valuePropName='checked'>
+					<Form.Item<FieldType> className='form__items__item__checkbox' valuePropName='checked'>
 						<p>Information Label</p>
 						<Checkbox />
 					</Form.Item>

@@ -33,8 +33,8 @@ export const CreateRecordSection = () => {
 				})}
 			/>
 			<Form name='basic' labelCol={{ span: 8 }} wrapperCol={{ span: 16 }} initialValues={{ remember: true }} autoComplete='off' className='form'>
-				{new Array(2).fill(null).map(() => {
-					return <FormItem />
+				{new Array(3).fill(null).map((_, id) => { 
+					return <FormItem key={id}/>
 				})}
 
 				<Flex className='form__footer'>
