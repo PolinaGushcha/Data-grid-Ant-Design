@@ -13,10 +13,12 @@ export const HeaderTitle = () => {
 
 	return (
 		<Flex className='headerTitle'>
-			<Title level={2}>Page Title</Title>
+			<Title className='headerTitle__text' level={2}>
+				Page Title
+			</Title>
 			<Flex className='headerTitle__buttons'>
 				<Button className='headerTitle__btn' type='default' iconPosition='start' icon={<PlusOutlined />} onClick={handleRouteLocation}>
-					Create new
+					Create New
 				</Button>
 				<Button className='headerTitle__btn' type='default' iconPosition='start' icon={<BugOutlined />}>
 					Action 2

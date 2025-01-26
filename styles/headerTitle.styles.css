@@ -4,6 +4,10 @@
 	background-color: #fafafa;
 }
 
+.headerTitle__text {
+	letter-spacing: 1.4px;
+}
+
 .headerTitle__buttons {
 	gap: 16px;
 }

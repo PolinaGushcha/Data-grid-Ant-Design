@@ -1,32 +1,92 @@
 .pageTable {
-    padding: 0 40px;
+	padding: 0 40px;
 }
 
 .pageTable__selectedCount {
-    padding-top: 20px;
+	padding-top: 20px;
 }
 
 .pageTable__btnContainer {
-    padding-right: 14px;
+	padding-right: 14px;
 }
 
 .pageTable__btnContainer__btn {
-    color: #D9D9D9;
+	color: #d9d9d9;
 }
 
 .pageTable__btnContainer__btn svg {
-    fill: rgba(0, 0, 0, 0.45);
+	fill: rgba(0, 0, 0, 0.45);
 }
 
 .pageTable__btnContainer__divider {
-    height: 40px;
-    position: relative;
-    top: -5px;
+	height: 40px;
+	position: relative;
+	top: -5px;
 }
 
-.pageTable__table th:first-child, th:nth-child(2) {
-    width: 10%;
+.pageTable__table table {
+	position: relative;
+	top: -7px;
 }
-.pageTable__table th:nth-child(3) {
-    width: 20%;
+
+.pageTable__table th {
+	padding: 12px 16px;
+}
+
+.pageTable__table th:first-child,
+th:nth-child(2) {
+	width: 48px;
+}
+
+.pageTable__table td {
+	padding: 7px 8px 6px;
+}
+
+.pageTable__table__status {
+	padding: 0px 8px;
+}
+
+.pageTable__table__name {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 8px;
+}
+
+.pageTable__table__action {
+	justify-content: flex-end;
+	align-items: center;
+	gap: 17px;
+}
+
+.pageTable__table__more {
+	position: relative;
+	left: 4px;
+}
+
+.pageTable__pagination {
+	margin-top: 8px;
+	gap: 8px;
+	position: relative;
+	right: -8px;
+}
+
+[aria-label='Page'] {
+	padding: 5px 12px;
+	width: 71px;
+	margin: 0 8px;
+}
+
+.pageTable__pagination .ant-select {
+	width: 90px;
+	margin: 0 8px 0 0;
+}
+
+.pageTable__pagination > li {
+	position: relative;
+	right: 9px;
+}
+.pageTable__pagination > li:last-child {
+	right: 0px;
 }

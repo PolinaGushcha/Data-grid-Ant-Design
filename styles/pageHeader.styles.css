@@ -10,9 +10,9 @@
 
 .pageHeader__tabs div[role='tablist'] div[role='tab'] {
 	padding: 21px 0px 21px;
-	margin: 0 22px 0 16px;
+	margin: 0 18px 0 16px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	gap: 6px;
+	gap: 10px;
 }
