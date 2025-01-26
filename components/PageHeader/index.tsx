@@ -3,23 +3,19 @@
 import { Flex, Tabs } from 'antd'
 import { handleItems } from 'constants/pageHeader.constants'
 import React from 'react'
-import 'styles/pageHeader.styles.css'
+import 'styles/components/pageHeader.styles.css'
+import { HeaderTitleBlock, UserInfoDropdown } from 'ui'
 
-import { HeaderTitle } from 'ui/HeaderTitle'
-import { UserInfo } from 'ui/UserInfo'
-
-const PageHeader: React.FC = () => {
+export const PageHeader: React.FC = () => {
 	return (
 		<Flex justify='space-between' className='pageHeader'>
 			<Tabs
-				tabBarExtraContent={<UserInfo />}
+				tabBarExtraContent={<UserInfoDropdown />}
 				defaultActiveKey='0'
-				items={handleItems(<HeaderTitle />)}
+				items={handleItems(<HeaderTitleBlock />)}
 				className='pageHeader__tabs'
 				indicator={{ size: origin => origin - 32, align: 'center' }}
 			/>
 		</Flex>
 	)
 }
-
-export default PageHeader

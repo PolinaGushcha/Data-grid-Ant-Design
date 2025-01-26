@@ -1,9 +1,9 @@
 import { BugOutlined, MoreOutlined, PlusOutlined } from '@ant-design/icons'
 import { Button, Flex, Typography } from 'antd'
 import { useRouter } from 'next/navigation'
-import 'styles/headerTitle.styles.css'
+import 'styles/ui/headerTitle.styles.css'
 
-export const HeaderTitle = () => {
+export const HeaderTitleBlock = () => {
 	const { Title } = Typography
 	const router = useRouter()
 

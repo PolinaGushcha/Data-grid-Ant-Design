@@ -4,11 +4,10 @@ import { StyleProvider } from '@ant-design/cssinjs'
 import { AppstoreOutlined, CloseOutlined, LeftOutlined } from '@ant-design/icons'
 import { Avatar, Button, Flex, Layout, Tabs, Typography } from 'antd'
 import { Content, Header } from 'antd/es/layout/layout'
+import { CreateRecordSection } from 'components'
+import DataContextProvider from 'context/DataContextProvider'
 import { useRouter } from 'next/navigation'
-import 'styles/main.styles.css'
-
-import { CreateRecordSection } from '@/components/CreateRecordSection'
-import DataContextProvider from '@/store/DataContextProvider'
+import 'styles/pages/main.styles.css'
 
 export default function CreateRecord() {
 	const { Title } = Typography
@@ -34,8 +33,8 @@ export default function CreateRecord() {
 						</Title>
 						<DataContextProvider>
 							<Tabs
-								style={{ marginTop: 7 }}
 								className='tableTabs'
+								style={{ marginTop: 7 }}
 								type='card'
 								items={new Array(6).fill(null).map((_, i) => {
 									const id = String(i + 1)

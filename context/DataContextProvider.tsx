@@ -4,6 +4,7 @@ import { IDataContext, IDataContextProps } from 'types/context.types'
 import { DataType } from 'types/pageTable.types'
 
 const DataContext = createContext<IDataContext>({} as IDataContext)
+
 const DataContextProvider = ({ children }: IDataContextProps) => {
 	const [tableData, setTableData] = useState<DataType[]>(dataSource)
 

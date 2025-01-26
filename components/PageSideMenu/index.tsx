@@ -1,11 +1,11 @@
 import { MailOutlined } from '@ant-design/icons'
 import { Flex, Menu } from 'antd'
 import { items } from 'constants/pageSideMenu.constants'
-import 'styles/pageSideMenu.styles.css'
+import 'styles/components/pageSideMenu.styles.css'
 
 import LogoIcon from 'ui/LogoIcon'
 
-export default function PageSideMenu() {
+export const PageSideMenu = () => {
 	return (
 		<>
 			<Flex className='pageSideMenu__logo'>

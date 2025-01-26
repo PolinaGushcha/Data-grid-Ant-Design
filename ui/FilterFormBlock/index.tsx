@@ -2,12 +2,11 @@
 
 import { FilterTwoTone } from '@ant-design/icons'
 import { Button, Form, Input, Select } from 'antd'
+import { useDataContext } from 'context/DataContextProvider'
 import { useState } from 'react'
-import 'styles/filterForm.styles.css'
+import 'styles/ui/filterFormBlock.styles.css'
 
-import { useDataContext } from '@/store/DataContextProvider'
-
-export const FilterForm = () => {
+export const FilterFormBlock = () => {
 	const [state, setState] = useState(4)
 	const filtersArr = Array.from({ length: state }, (_, i) => String.fromCharCode(97 + i))
 	const { filterDatatContext } = useDataContext()
