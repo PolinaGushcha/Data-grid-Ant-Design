@@ -2,10 +2,10 @@
 
 import { DownOutlined, UserOutlined } from '@ant-design/icons'
 import { Avatar, Dropdown, Flex, Space } from 'antd'
-import { items } from 'constants/userInfo.constants'
-import 'styles/userInfo.styles.css'
+import { items } from 'constants/userInfoDropdown.constants'
+import 'styles/ui/userInfo.styles.css'
 
-export const UserInfo = (): React.ReactNode => (
+export const UserInfoDropdown = (): React.ReactNode => (
 	<Flex className='userInfo'>
 		<Avatar size={32} icon={<UserOutlined />} />
 		<Dropdown menu={{ items }} className='userInfo__dropdown' rootClassName='userInfo__dropdowContainer'>

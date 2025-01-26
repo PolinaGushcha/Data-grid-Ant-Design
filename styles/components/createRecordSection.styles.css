@@ -4,6 +4,10 @@
 
 .form__container {
 	flex-direction: column;
+	padding: 33px 45px 41px;
+}
+
+.form__container:first-child {
 	padding: 15px 45px 41px;
 }
 

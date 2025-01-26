@@ -1,16 +1,14 @@
 'use client'
 
-import { BugFilled, InsertRowRightOutlined, MoreOutlined, RightOutlined, SaveFilled } from '@ant-design/icons'
-import { Button, Divider, Flex, Table, TableProps } from 'antd'
+import { RightOutlined } from '@ant-design/icons'
+import { Flex, Table } from 'antd'
 import { TableRowSelection } from 'antd/es/table/interface'
 import { columns } from 'constants/pageTable.constants'
+import { useDataContext } from 'context/DataContextProvider'
 import React, { useEffect, useState } from 'react'
-import 'styles/pageTable.styles.css'
+import 'styles/components/pageTable.styles.css'
 import { DataType, TableParams } from 'types/pageTable.types'
-
-import { FilterForm } from 'ui/FilterForm'
-
-import { useDataContext } from '@/store/DataContextProvider'
+import { FilterFormBlock, SelectedCountBlock } from 'ui'
 
 export const PageTable = () => {
 	const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([])
@@ -26,6 +24,7 @@ export const PageTable = () => {
 			className: 'pageTable__pagination'
 		}
 	})
+	const [expandedKeys, setExpandedKeys] = useState<React.Key[]>([])
 
 	const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
 		setSelectedRowKeys(newSelectedRowKeys)
@@ -36,6 +35,10 @@ export const PageTable = () => {
 		onChange: onSelectChange
 	}
 
+	const toggleExpand = (key: React.Key) => {
+		setExpandedKeys(prev => (prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key]))
+	}
+
 	useEffect(() => {
 		const paginationInput = document.querySelector('[aria-label="Page"]') as HTMLInputElement
 		if (paginationInput) {
@@ -43,29 +46,11 @@ export const PageTable = () => {
 		}
 	}, [])
 
-	const handleTableChange: TableProps<DataType>['onChange'] = (pagination, filters) => {
-		setTableParams({
-			pagination,
-			filters
-		})
-	}
-
 	return (
 		<Flex gap='middle' vertical className='pageTable'>
-			<FilterForm />
+			<FilterFormBlock />
 			<Flex align='flex-start' gap='middle' justify='space-between'>
-				<p className='pageTable__selectedCount'>
-					{selectedRowKeys.length} of {tableData.length} Selected
-				</p>
-				<Flex className='pageTable__btnContainer' gap={25}>
-					<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<BugFilled />} />
-					<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<BugFilled />} />
-					<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<MoreOutlined />} />
-					<Divider className='pageTable__btnContainer__divider' type='vertical' />
-					<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<SaveFilled />} />
-					<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<InsertRowRightOutlined />} />
-					<Button className='pageTable__btnContainer__btn' type='default' iconPosition='start' icon={<MoreOutlined />} />
-				</Flex>
+				<SelectedCountBlock selectedRowKeysLength={selectedRowKeys.length} tableDataLength={tableData.length} />
 			</Flex>
 			<Table<DataType>
 				pagination={tableParams.pagination}
@@ -74,11 +59,21 @@ export const PageTable = () => {
 				rowSelection={rowSelection}
 				columns={columns}
 				dataSource={tableData}
-				onChange={handleTableChange}
+				onChange={(pagination, filters) => setTableParams({ pagination, filters })}
 				expandable={{
 					expandedRowRender: record => <p>{record.description}</p>,
-					expandIcon: ({ expanded, onExpand, record }) =>
-						expanded ? <RightOutlined onClick={e => onExpand(record, e)} /> : <RightOutlined onClick={e => onExpand(record, e)} />
+					expandIcon: ({ expanded, onExpand, record }) => (
+						<RightOutlined
+							onClick={e => {
+								onExpand(record, e)
+								toggleExpand(record.key)
+							}}
+							style={{
+								transition: 'transform 0.2s',
+								transform: expanded || expandedKeys.includes(record.key) ? 'rotate(90deg)' : 'rotate(0deg)'
+							}}
+						/>
+					)
 				}}
 			/>
 		</Flex>

@@ -4,13 +4,10 @@ import { StyleProvider } from '@ant-design/cssinjs'
 import { Layout, Tabs } from 'antd'
 import Sider from 'antd/es/layout/Sider'
 import { Content, Header } from 'antd/es/layout/layout'
-import PageHeader from 'components/PageHeader'
-import PageSideMenu from 'components/PageSideMenu'
-import { PageTable } from 'components/PageTable'
+import { PageHeader, PageSideMenu, PageTable } from 'components'
+import DataContextProvider from 'context/DataContextProvider'
 import React from 'react'
-import 'styles/main.styles.css'
-
-import DataContextProvider from '@/store/DataContextProvider'
+import 'styles/pages/main.styles.css'
 
 export default function Main() {
 	return (
