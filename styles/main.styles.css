@@ -42,6 +42,12 @@
 	align-items: center;
 	padding: 16px 36px 12px 32px;
 	height: fit-content;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	right: 0px;
+	border-bottom: 2px solid #F2F2F2;
+	z-index: 2;
 }
 .createRecord__btn {
 	border-color: #1677ff;
@@ -56,6 +62,7 @@
 	min-height: 100vh;
 	flex-direction: column;
 	padding: 39px 40px;
+	margin-top: 61px;
 }
 .createRecord__title {
 	display: flex;
@@ -64,10 +71,10 @@
 	align-items: center;
 	gap: 10px;
 	gap: 16px;
-    letter-spacing: 1.3px;
+	letter-spacing: 1.3px;
 }
 .createRecordSection {
-	margin-top: 40px;
+	margin-top: 33px;
 }
 .createRecordSection__tabs div[role='tablist'] {
 	padding: 0;
@@ -80,4 +87,7 @@
 }
 .createRecordSection__tabs .ant-tabs-content-holder {
 	display: none;
+}
+.createRecordSection__tabs div[role='tab'] {
+	padding: 4px 17px;
 }

@@ -43,7 +43,7 @@ export const PageTable = () => {
 		}
 	}, [])
 
-	const handleTableChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter) => {
+	const handleTableChange: TableProps<DataType>['onChange'] = (pagination, filters) => {
 		setTableParams({
 			pagination,
 			filters

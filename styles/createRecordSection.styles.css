@@ -1,0 +1,72 @@
+.form {
+	width: 100%;
+}
+
+.form__container {
+	flex-direction: column;
+	padding: 15px 45px 41px;
+}
+
+.form__title {
+	margin-bottom: 32px;
+}
+
+.form__items {
+	flex-direction: row;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 22px 33px;
+	max-width: 800px;
+}
+
+.form__items__item {
+	display: flex;
+}
+
+.form__items__item__input {
+	min-width: 200px;
+	padding: 5px 10px;
+	margin-top: 2px;
+}
+.form__items__item__select {
+	min-width: 200px;
+	margin-top: 2px;
+}
+.form__items__item__select .ant-select-selector {
+	padding-left: 10px;
+}
+.form__items__item__select .ant-select-arrow {
+	padding-bottom: 10px;
+}
+.form__items__item__checkbox p {
+	min-width: 200px;
+	margin: 2px 0;
+}
+.form__divider {
+	margin-left: 45px;
+}
+.form__footer {
+    border-top: 2px solid #F2F2F2;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	background-color: white;
+    justify-content: space-between;
+    padding: 21px 32px;
+}
+
+.form__footer__btnContainer {
+    gap: 15px
+}
+
+.form__footer__btnContainer:first-child .form__footer__btnContainer__btn:nth-child(2) {
+    padding-left: 54px;
+}
+
+.form__footer__btnContainer__btn {
+	border-color: #1677ff;
+	color: #1677ff;
+	padding: 19px 20px;
+	background-color: transparent;
+}
