@@ -32,25 +32,30 @@ export const CreateRecordSection = () => {
 					}
 				})}
 			/>
-			<Form name='basic' labelCol={{ span: 8 }} wrapperCol={{ span: 16 }} initialValues={{ remember: true }} autoComplete='off' className='form'>
+			<Form name='basic' labelCol={{ span: 8 }} wrapperCol={{ span: 16 }} 
+			initialValues={{ remember: true }} autoComplete='off' className='form'>
 				{new Array(3).fill(null).map((_, id) => { 
 					return <FormItem key={id}/>
 				})}
 
 				<Flex className='form__footer'>
 					<Flex className='form__footer__btnContainer'>
-						<Button className='form__footer__btnContainer__btn' type='default' icon={<LeftOutlined />} iconPosition='start'>
+						<Button className='form__footer__btnContainer__btn' type='default' 
+						icon={<LeftOutlined />} iconPosition='start'>
 							Previous
 						</Button>
-						<Button className='form__footer__btnContainer__btn' type='default' icon={<RightOutlined />} iconPosition='end'>
+						<Button className='form__footer__btnContainer__btn' type='default' 
+						icon={<RightOutlined />} iconPosition='end'>
 							Next
 						</Button>
 					</Flex>
 					<Flex className='form__footer__btnContainer'>
-						<Button className='form__footer__btnContainer__btn' type='default' icon={<StopOutlined />} iconPosition='start' onClick={handleReturn}>
+						<Button className='form__footer__btnContainer__btn' type='default' 
+						icon={<StopOutlined />} iconPosition='start' onClick={handleReturn}>
 							Cancel
 						</Button>
-						<Button className='form__footer__btnContainer__btn' type='default' icon={<SaveOutlined />} iconPosition='start' onClick={handleSave}>
+						<Button className='form__footer__btnContainer__btn' type='default' 
+						icon={<SaveOutlined />} iconPosition='start' onClick={handleSave}>
 							Save
 						</Button>
 					</Flex>
