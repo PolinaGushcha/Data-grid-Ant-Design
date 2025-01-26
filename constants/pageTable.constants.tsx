@@ -14,12 +14,18 @@ export const columns: TableColumnsType<DataType> = [
 				<p>{text}</p>
 			</div>
 		),
-		width: '10.8%'
+		width: '10.8%',
+		filters: [
+			{
+				text: 'Table cell text',
+				value: 'Table cell text'
+			}
+		]
 	},
-	{ title: 'Age', dataIndex: 'age1', width: '10.8%' },
-	{ title: 'Age', dataIndex: 'age2', width: '10.8%' },
-	{ title: 'Age', dataIndex: 'age3', width: '10.8%' },
-	{ title: 'Age', dataIndex: 'age4', width: '10.7%' },
+	{ title: 'Age', dataIndex: 'age1', width: '10.8%', filters: [{ text: 'Table cell text', value: 'Table cell text' }] },
+	{ title: 'Age', dataIndex: 'age2', width: '10.8%', filters: [{ text: 'Table cell text', value: 'Table cell text' }] },
+	{ title: 'Age', dataIndex: 'age3', width: '10.8%', filters: [{ text: 'Table cell text', value: 'Table cell text' }] },
+	{ title: 'Age', dataIndex: 'age4', width: '10.7%', filters: [{ text: 'Table cell text', value: 'Table cell text' }] },
 	{ title: 'City', dataIndex: 'city', width: '10.8%' },
 	{ title: 'Status', dataIndex: 'status', width: '10.8%', render: text => <Tag className='pageTable__table__status'>{text}</Tag> },
 	{

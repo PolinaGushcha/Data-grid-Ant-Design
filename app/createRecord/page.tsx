@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation'
 import 'styles/main.styles.css'
 
 import { CreateRecordSection } from '@/components/CreateRecordSection'
+import DataContextProvider from '@/store/DataContextProvider'
 
 export default function CreateRecord() {
 	const { Title } = Typography
@@ -31,19 +32,21 @@ export default function CreateRecord() {
 							<Avatar icon={<AppstoreOutlined />} size={72} />
 							Create Record
 						</Title>
-						<Tabs
-							style={{ marginTop: 7 }}
-							className='tableTabs'
-							type='card'
-							items={new Array(6).fill(null).map((_, i) => {
-								const id = String(i + 1)
-								return {
-									label: 'Tab title',
-									key: id,
-									children: <CreateRecordSection />
-								}
-							})}
-						/>
+						<DataContextProvider>
+							<Tabs
+								style={{ marginTop: 7 }}
+								className='tableTabs'
+								type='card'
+								items={new Array(6).fill(null).map((_, i) => {
+									const id = String(i + 1)
+									return {
+										label: 'Tab title',
+										key: id,
+										children: <CreateRecordSection />
+									}
+								})}
+							/>
+						</DataContextProvider>
 					</Flex>
 				</Content>
 			</Layout>

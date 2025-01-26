@@ -1,7 +1,9 @@
 import { LeftOutlined, RightOutlined, SaveOutlined, StopOutlined } from '@ant-design/icons'
 import { Button, Checkbox, Divider, Flex, Form, FormProps, Input, Select, Tabs } from 'antd'
+import { useRouter } from 'next/navigation'
 import 'styles/createRecordSection.styles.css'
 import { FieldType } from 'types/createRecordSection.types'
+import { useDataContext } from '@/store/DataContextProvider'
 
 const onFinish: FormProps<FieldType>['onFinish'] = values => {
 	console.log('Success:', values)
@@ -12,6 +14,17 @@ const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = errorInfo => {
 }
 
 export const CreateRecordSection = () => {
+	const router = useRouter()
+	const { addDataContext } = useDataContext()
+
+	const handleReturn = () => {
+		router.back()
+	}
+
+	const handleSave = () => {
+		addDataContext()
+	}
+
 	return (
 		<Flex className='createRecordSection'>
 			<Tabs
@@ -87,22 +100,25 @@ export const CreateRecordSection = () => {
 				</Flex>
 				<Divider className='form__divider' />
 				<Flex className='form__footer'>
-						<Flex className='form__footer__btnContainer'>
-							<Button className='form__footer__btnContainer__btn' type='default' icon={<LeftOutlined />} iconPosition='start'>
-								Previous
-							</Button>
-							<Button className='form__footer__btnContainer__btn' type='default' icon={<RightOutlined />} iconPosition='end'>
-								Next
-							</Button>
-						</Flex>
-						<Flex className='form__footer__btnContainer'>
-							<Button className='form__footer__btnContainer__btn' type='default' icon={<StopOutlined />} iconPosition='start'>
-								Cancel
-							</Button>
-							<Button className='form__footer__btnContainer__btn' type='default' icon={<SaveOutlined />} iconPosition='start'>
-								Save
-							</Button>
-						</Flex>
+					<Flex className='form__footer__btnContainer'>
+						<Button className='form__footer__btnContainer__btn' type='default' icon={<LeftOutlined />}
+						 iconPosition='start'>
+							Previous
+						</Button>
+						<Button className='form__footer__btnContainer__btn' type='default' icon={<RightOutlined />} iconPosition='end'>
+							Next
+						</Button>
+					</Flex>
+					<Flex className='form__footer__btnContainer'>
+						<Button className='form__footer__btnContainer__btn' type='default' icon={<StopOutlined />}
+						 iconPosition='start' onClick={handleReturn}>
+							Cancel
+						</Button>
+						<Button className='form__footer__btnContainer__btn' type='default' icon={<SaveOutlined />}
+						 iconPosition='start' onClick={handleSave}>
+							Save
+						</Button>
+					</Flex>
 				</Flex>
 			</Form>
 		</Flex>
