@@ -1,10 +1,11 @@
 import { MoreOutlined } from '@ant-design/icons'
 import { Avatar, Flex, TableColumnsType, Tag } from 'antd'
 import { DataType } from 'types/pageTable.types'
+import { v4 as uuidv4 } from 'uuid'
 
 import srcAvatar from '../app/avatar.png'
 
-export const columns: TableColumnsType<DataType> = [
+export const TABLECOLUMNS: TableColumnsType<DataType> = [
 	{
 		title: 'Name',
 		dataIndex: 'name',
@@ -43,8 +44,8 @@ export const columns: TableColumnsType<DataType> = [
 	{ title: '', dataIndex: 'more', render: () => <MoreOutlined className='pageTable__table__more' /> }
 ]
 
-export const dataSource = Array.from<DataType>({ length: 1000 }).map<DataType>((_, i) => ({
-	key: i,
+export const MOCKTABLEDATA: DataType = {
+	key: uuidv4(),
 	name: 'Table cell text',
 	age1: 'Table cell text',
 	age2: 'Table cell text',
@@ -54,4 +55,4 @@ export const dataSource = Array.from<DataType>({ length: 1000 }).map<DataType>((
 	status: 'Default',
 	description: 'Description',
 	action: 'Action'
-}))
+}

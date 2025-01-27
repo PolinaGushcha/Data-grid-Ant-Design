@@ -1,17 +1,19 @@
-import { dataSource } from 'constants/pageTable.constants'
 import { createContext, useContext, useState } from 'react'
 import { IDataContext, IDataContextProps } from 'types/context.types'
 import { DataType } from 'types/pageTable.types'
 
+import { TABLEDATACOUNT } from '@/constants/countsOfElements.constants'
+import { ArrayMockTableData } from '@/services'
+
 const DataContext = createContext<IDataContext>({} as IDataContext)
 
 const DataContextProvider = ({ children }: IDataContextProps) => {
-	const [tableData, setTableData] = useState<DataType[]>(dataSource)
+	const [tableData, setTableData] = useState<DataType[]>(ArrayMockTableData)
 
 	const addDataContext = () => {
 		setTableData(prev => {
 			prev.unshift({
-				key: dataSource.length,
+				key: TABLEDATACOUNT + 1,
 				name: 'Text from Form',
 				age1: 'Text from Form',
 				age2: 'Text from Form',
@@ -27,7 +29,7 @@ const DataContextProvider = ({ children }: IDataContextProps) => {
 	}
 
 	const filterDatatContext = (value: string) => {
-		const filtered = dataSource.filter(item => {
+		const filtered = ArrayMockTableData.filter(item => {
 			return item.name.toLowerCase().includes(value.toLowerCase())
 		})
 		setTableData(filtered)

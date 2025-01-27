@@ -1,9 +1,10 @@
 import type { ThemeConfig } from 'antd'
+import { THEMECOLORPRIMARY, THEMEFONTSIZE } from 'constants/countsOfElements.constants'
 
 const theme: ThemeConfig = {
 	token: {
-		fontSize: 14,
-		colorPrimary: '#0958D9'
+		fontSize: THEMEFONTSIZE,
+		colorPrimary: THEMECOLORPRIMARY
 	}
 }
 

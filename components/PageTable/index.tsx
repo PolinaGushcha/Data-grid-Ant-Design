@@ -3,12 +3,14 @@
 import { RightOutlined } from '@ant-design/icons'
 import { Flex, Table } from 'antd'
 import { TableRowSelection } from 'antd/es/table/interface'
-import { columns } from 'constants/pageTable.constants'
+import { TABLECOLUMNS } from 'constants/pageTable.constants'
 import { useDataContext } from 'context/DataContextProvider'
 import React, { useEffect, useState } from 'react'
 import 'styles/components/pageTable.styles.css'
 import { DataType, TableParams } from 'types/pageTable.types'
 import { FilterFormBlock, SelectedCountBlock } from 'ui'
+
+import { PAGESIZEOPTIONS } from '@/constants/countsOfElements.constants'
 
 export const PageTable = () => {
 	const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([])
@@ -19,7 +21,7 @@ export const PageTable = () => {
 			pageSize: 14,
 			showSizeChanger: true,
 			showQuickJumper: true,
-			pageSizeOptions: [0, 10, 14, 20, 50, 100],
+			pageSizeOptions: PAGESIZEOPTIONS,
 			total: tableData.length,
 			className: 'pageTable__pagination'
 		}
@@ -57,7 +59,7 @@ export const PageTable = () => {
 				className='pageTable__table'
 				rowKey={record => record.key}
 				rowSelection={rowSelection}
-				columns={columns}
+				columns={TABLECOLUMNS}
 				dataSource={tableData}
 				onChange={(pagination, filters) => setTableParams({ pagination, filters })}
 				expandable={{
