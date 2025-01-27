@@ -2,12 +2,14 @@
 
 import { FilterTwoTone } from '@ant-design/icons'
 import { Button, Form, Input, Select } from 'antd'
+import { FILTERSCOUNT } from 'constants/countsOfElements.constants'
+import { TABLECOLUMNS } from 'constants/pageTable.constants'
 import { useDataContext } from 'context/DataContextProvider'
 import { useState } from 'react'
 import 'styles/ui/filterFormBlock.styles.css'
 
 export const FilterFormBlock = () => {
-	const [state, setState] = useState(4)
+	const [state, setState] = useState(FILTERSCOUNT)
 	const filtersArr = Array.from({ length: state }, (_, i) => String.fromCharCode(97 + i))
 	const { filterDatatContext } = useDataContext()
 
@@ -31,7 +33,7 @@ export const FilterFormBlock = () => {
 				icon={<FilterTwoTone />}
 				className='filterForm__btn'
 				type='default'
-				onClick={() => setState(prev => (prev < 6 ? ++prev : prev))}
+				onClick={() => setState(prev => (prev < TABLECOLUMNS.length - 3 ? ++prev : prev))}
 			>
 				More Filters
 			</Button>

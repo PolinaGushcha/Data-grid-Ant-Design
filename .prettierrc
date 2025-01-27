@@ -13,6 +13,7 @@
 		"^@components/(.*)$",
 		"^@constants/(.*)$",
 		"^@fonts/(.*)$",
+		"^@services/(.*)$",
 		"^@context/(.*)$",
 		"^@styles/(.*)$",
 		"^@theme/(.*)$",

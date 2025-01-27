@@ -9,6 +9,9 @@ import DataContextProvider from 'context/DataContextProvider'
 import { useRouter } from 'next/navigation'
 import 'styles/pages/main.styles.css'
 
+import { TABSCOUNT } from '@/constants/countsOfElements.constants'
+import { createMenuList } from '@/services'
+
 export default function CreateRecord() {
 	const { Title } = Typography
 	const router = useRouter()
@@ -36,14 +39,7 @@ export default function CreateRecord() {
 								className='tableTabs'
 								style={{ marginTop: 7 }}
 								type='card'
-								items={new Array(6).fill(null).map((_, i) => {
-									const id = String(i + 1)
-									return {
-										label: 'Tab title',
-										key: id,
-										children: <CreateRecordSection />
-									}
-								})}
+								items={createMenuList({ arrayLength: TABSCOUNT, label: 'Tab title', children: <CreateRecordSection /> })}
 							/>
 						</DataContextProvider>
 					</Flex>

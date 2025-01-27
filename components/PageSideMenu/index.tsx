@@ -1,9 +1,11 @@
 import { MailOutlined } from '@ant-design/icons'
 import { Flex, Menu } from 'antd'
-import { items } from 'constants/pageSideMenu.constants'
 import 'styles/components/pageSideMenu.styles.css'
 
 import LogoIcon from 'ui/LogoIcon'
+
+import { SIDEMENUITEMSCOUNT } from '@/constants/countsOfElements.constants'
+import { createMenuList } from '@/services'
 
 export const PageSideMenu = () => {
 	return (
@@ -11,7 +13,13 @@ export const PageSideMenu = () => {
 			<Flex className='pageSideMenu__logo'>
 				<LogoIcon />
 			</Flex>
-			<Menu itemIcon={<MailOutlined />} className='pageSideMenu__menu' mode='inline' defaultSelectedKeys={['0']} items={items} />
+			<Menu
+				itemIcon={<MailOutlined />}
+				className='pageSideMenu__menu'
+				mode='inline'
+				defaultSelectedKeys={['0']}
+				items={createMenuList({ arrayLength: SIDEMENUITEMSCOUNT, label: '' })}
+			/>
 		</>
 	)
 }

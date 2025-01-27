@@ -1,0 +1,10 @@
+export const TABSCOUNT = 6
+export const RECORDTABSCOUNT = 5
+export const FORMINPUTSCOUNT = 3
+export const FILTERSCOUNT = 4
+export const NAVIGATIONITEMSCOUNT = 4
+export const SIDEMENUITEMSCOUNT = 5
+export const TABLEDATACOUNT = 1000
+export const PAGESIZEOPTIONS = [0, 10, 14, 20, 50, 100]
+export const THEMEFONTSIZE = 14
+export const THEMECOLORPRIMARY = '#0958D9'

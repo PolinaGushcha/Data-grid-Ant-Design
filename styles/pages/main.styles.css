@@ -62,11 +62,8 @@
 	min-height: 100vh;
 	flex-direction: column;
 
-	padding: 39px 40px;
+	padding: 39px 40px 70px;
 	margin-top: 61px;
-
-	/* padding: 100px 40px 123px; */
-	/* overflow: auto; */
 }
 .createRecord__title {
 	display: flex;
